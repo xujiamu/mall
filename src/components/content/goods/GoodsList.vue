@@ -1,5 +1,5 @@
 <template>
-  <div class="GoodList">
+  <div class="GoodList" v-if="goods.length">
     <template v-for="item in goods">
     <goods-list-item :item="item"/>
     </template>

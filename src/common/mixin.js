@@ -1,4 +1,6 @@
 import {debounce} from "./utils"
+import {POP, NEW, SELL} from "./const";
+
 
 
 export const imgLoadMixin =  {
@@ -32,6 +34,29 @@ export const backTopMixin =  {
     showBackTop(position) {
       //返回顶部按钮的显示与隐藏
       this.isShowBackTop = -position.y > 1000
+    }
+  }
+}
+
+export const tabControlMixin = {
+  data: function () {
+    return {
+      currentType: POP
+    }
+  },
+  methods: {
+    tabClick(index) {
+      switch (index) {
+        case 0:
+          this.currentType = POP
+          break
+        case 1:
+          this.currentType = NEW
+          break
+        case 2:
+          this.currentType = SELL
+          break
+      }
     }
   }
 }

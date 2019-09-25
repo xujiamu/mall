@@ -1,6 +1,6 @@
 <template>
   <div class="goods-item" @click="goodsDetail">
-    <img :src="imgSrc" alt="" @load="loadImg">
+    <img v-lazy="imgSrc" alt="" @load="loadImg">
    <div class="goods-info">
      <p>{{item.title}}</p>
      <span class="price">{{item.price}}</span>
@@ -22,7 +22,8 @@
     },
     computed: {
       imgSrc () {
-        return this.item.image || this.item.show.img
+        //这里顺序是固定的，是逐层往下找的，改顺序浏览器会报错
+        return this.item.img || this.item.image || this.item.show.img
       }
     },
     methods: {

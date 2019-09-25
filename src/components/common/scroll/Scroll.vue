@@ -19,6 +19,12 @@ import BScroll from 'better-scroll'
       pullUpLoad: {
         type: Boolean,
         default: true
+      },
+      data: {
+        type: Array,
+        default() {
+          return []
+        }
       }
     },
     data() {
@@ -62,6 +68,11 @@ import BScroll from 'better-scroll'
       //得到当前滚动的距离
       getScroll() {
         return this.scroll ? this.scroll.y : 0
+      }
+    },
+    watch: {
+      data() {
+        setTimeout(this.refresh, 20)
       }
     }
   }
