@@ -203,5 +203,6 @@
   }
   .detail-scroll{
     height: calc(100% - 102px);
+    position: relative;
   }
 </style>

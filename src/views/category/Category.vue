@@ -11,8 +11,8 @@
         <div>
           <tab-content-category :subcategories="showSubcategory"/>
           <tab-control :title="['综合', '新品', '销量']"
-                       @changeIndex="tabClick"/>
-          <goods-list :goods="showCategoryDetail"/>
+                       @ChangeIndex="tabClick"/>
+          <tab-content-detail :category-detail="showCategoryDetail"></tab-content-detail>
         </div>
       </scroll>
     </div>
@@ -24,11 +24,11 @@
 
   import TabMenu from './childComps/TabMenu'
   import TabContentCategory from './childComps/TabContentCategory'
-
+  import TabContentDetail from './childComps/TabContentDetail'
 
   import TabControl from 'components/content/tabControl/TabControl'
   import Scroll from 'components/common/scroll/Scroll'
-  import GoodsList from 'components/content/goods/GoodsList'
+
 
   import {getCategory, getSubcategory, getCategoryDetail} from "network/category";
   import {POP, SELL, NEW} from "common/const";
@@ -42,7 +42,7 @@
       TabControl,
       Scroll,
       TabContentCategory,
-      GoodsList
+      TabContentDetail
     },
     mixins: [tabControlMixin],
     data() {
@@ -105,7 +105,7 @@
         })
       },
       _getCategoryDetail(type) {
-		    // 1.获取请求的miniWallkey
+        // 1.获取请求的miniWallkey
         const miniWallkey = this.categories[this.currentIndex].miniWallkey;
         // 2.发送请求,传入miniWallkey和type
 		    getCategoryDetail(miniWallkey, type).then(res => {

@@ -1,7 +1,7 @@
 <template>
   <nav-bar class="detail-nav-bar" >
     <template #left>
-      <img src="~assets/img/common/back.svg" alt="" @click="backUrl">
+      <img src="~assets/img/common/back.svg" alt="" @click="backUrl" class="back-img">
     </template>
     <template #center>
       <div  class="title">
@@ -42,8 +42,8 @@
 </script>
 
 <style scoped>
-  .detail-nav-bar>img {
-    margin-top: 13px;
+  .back-img {
+    margin-top: 10px;
   }
   .title {
     display: flex;
