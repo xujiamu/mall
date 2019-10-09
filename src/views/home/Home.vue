@@ -118,7 +118,7 @@
       this.scrollY = this.$refs.scroll.getScroll()
 
       //关闭LoadImg方法
-      this.$bus.$on('LoadImg',this.loadImg)
+      this.$bus.$off('LoadImg',this.loadImg)
     },
     computed: {
       goodsShow() {
